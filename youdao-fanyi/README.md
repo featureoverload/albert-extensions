@@ -4,11 +4,11 @@
 
 ## 资料
 
-开发时写的博客：
+开发本插件时写的博客：
 
-[编写 Albert 翻译插件](https://blog.csdn.net/qq_29757283/article/details/94874750)
+- [编写 Albert 翻译插件 :link:](https://blog.csdn.net/qq_29757283/article/details/94874750)
 
-[编写 Albert 翻译插件之功能升级](https://blog.csdn.net/qq_29757283/article/details/95018343)
+- [编写 Albert 翻译插件之功能升级 :link:](https://blog.csdn.net/qq_29757283/article/details/95018343)
 
 
 
@@ -17,6 +17,7 @@
 插件安装：
 
 ```shell
+$ wget https://raw.githubusercontent.com/RDpWTeHM/albert-extensions/master/youdao-fanyi/youdao_translate.py
 $ cp youdao_translate.py \
 ~/.local/share/albert/org.albert.extension.python/modules/
 
@@ -38,7 +39,7 @@ $
 
 > 其中，有道的 APP ID 和 Key 需要自己“免费”注册申请。
 
-在桌面上 电源位置 > 用户 > “注销”；注销之后重新登录。
+为了使修改过的 `$HOME/.profile` 生效，**在桌面上 电源位置 > 用户 > “注销”；注销之后重新登录**。
 
 
 

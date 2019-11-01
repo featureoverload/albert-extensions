@@ -1,4 +1,5 @@
 # albert-extensions
+
 extensions for albert launch
 
 
@@ -8,6 +9,18 @@ extensions for albert launch
 ### powered by Youdao API
 
 - [📁 youdao-fanyi](youdao-fanyi/)
+
+
+
+------
+
+
+
+## search extensions
+
+### search markdown by `grep`
+
+- [📁 search-in-markdown](search-in-markdown)
 
 
 

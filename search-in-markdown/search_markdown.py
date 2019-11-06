@@ -12,7 +12,7 @@ from albertv0 import *
 __iid__ = "PythonInterface/v0.1"
 __prettyname__ = "Search in Markdowns"
 __trigger__ = "smd "
-__version__ = "1.0"
+__version__ = "1.1"
 __author__ = "Joseph Lin"
 __dependencies__ = []
 
@@ -63,7 +63,11 @@ def handleQuery(query):
         for line in pp:
             ret = re.match(r'^(\./)([\w-]+.md):([\d]+):(.*)', line)
             # f"file: {ret.group(2)}; line: {ret.group(3)}; match: {ret.group(4)}"
-            item = Item(id='', icon=ICON_PATH, actions=[],
+            item = Item(id='', icon=ICON_PATH,
+                        actions=[
+                            ProcAction('Open Markdown File by Typora',
+                                       ['/opt/Typora-linux-x64/Typora', os.path.join(MARKDOWN_FILES_DIRECTORY, ret.group(2))]),
+                        ],
                         text='', subtext='',
                         completion='', urgency=ItemBase.Notification)
             item.text = ret.group(4)
@@ -73,6 +77,6 @@ def handleQuery(query):
     except Exception as err:
         warning("{!r}".format(err))
         ret_items[0].text = str(err)
-        items[0].subtext = "Internal Error!"
+        ret_items[0].subtext = "Internal Error!"
 
     return ret_items

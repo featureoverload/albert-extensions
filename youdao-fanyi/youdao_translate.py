@@ -15,7 +15,7 @@ import requests
 __iid__ = "PythonInterface/v0.1"
 __prettyname__ = "Translation Word"
 __trigger__ = "tr "
-__version__ = "2.2"
+__version__ = "2.3"
 __author__ = "Joseph Lin"
 __dependencies__ = ["requests", "youdao account"]
 
@@ -121,7 +121,7 @@ def generate_display_items(data):
                      text=str(data['basic']['phonetic']),
                      subtext="phonetic",
                      actions=[]))
-        except:
+        except Exception:
             pass
 
         try:
@@ -129,8 +129,9 @@ def generate_display_items(data):
                 results.append(
                     Item(id="", icon=ICON_PATH,
                          completion="", urgency=ItemBase.Notification,
-                         text=str(explain), subtext='explain', actions=[]))
-        except:
+                         text=str(explain), subtext='explain',
+                         actions=[ClipAction("copy", str(explain)), ]))
+        except Exception:
             pass
 
         try:
@@ -139,8 +140,9 @@ def generate_display_items(data):
                     Item(id="", icon=ICON_PATH,
                          completion="", urgency=ItemBase.Notification,
                          text="{}: {}".format(web_expl['key'], web_expl['value']),
-                         subtext='web explain', actions=[]))
-        except:
+                         subtext='web explain',
+                         actions=[ClipAction("copy", str(web_expl['value'])), ]))
+        except Exception:
             pass
 
         return results
